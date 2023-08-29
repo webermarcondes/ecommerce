@@ -14,6 +14,7 @@ import { CategoriaFormularioComponent } from './categoria/categoria-formulario/c
 
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -41,7 +42,9 @@ import { AngularFireStorageModule } from '@angular/fire/compat/storage';
       measurementId: "G-XZGZH53BN1"
     }
     ),
-    AngularFireStorageModule
+    AngularFireStorageModule,
+    FormsModule
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

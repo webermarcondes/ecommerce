@@ -19,30 +19,13 @@
         </tr>
     </thead>
     <tbody>
-        <tr>
+        <tr *ngFor="let categoria of dados">
             <th scope="row">1</th>
-            <td>Placa de Video</td>
+            <td>{{categoria.descricao}}</td>
             <td><button id="Cadastrar" name="Cadastrar" type="button" class="btn btn-primary"><i
                         class="bi bi-pencil"></i></button></td>
             <td><button id="Cadastrar" name="Cadastrar" type="button" class="btn btn-danger"><i
                         class="bi bi-trash3"></i></button></td>
-        </tr>
-        <tr>
-            <th scope="row">2</th>
-            <td>Processador i9 9900k</td>
-            <td><button id="Cadastrar" name="Cadastrar" type="button" class="btn btn-primary"><i
-                        class="bi bi-pencil"></i></button></td>
-            <td><button id="Cadastrar" name="Cadastrar" type="button" class="btn btn-danger"><i
-                        class="bi bi-trash3"></i></button></td>
-        </tr>
-        <tr>
-            <th scope="row">3</th>
-            <td>Monitor Sansung 24 Polegadas 240HZ</td>
-            <td class="text-right"><button id="Cadastrar" name="Cadastrar" type="button" class="btn btn-primary"><i
-                        class="bi bi-pencil"></i></button></td>
-            <td><button id="Cadastrar" name="Cadastrar" type="button" class="btn btn-danger"><i
-                        class="bi bi-trash3"></i></button></td>
-
         </tr>
     </tbody>
 </table>

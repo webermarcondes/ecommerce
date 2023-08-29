@@ -12,20 +12,15 @@
 </div>
 <br>
 <form>
-    <fieldset disabled>
+    <fieldset >
         <div class="mb-3">
-            <label for="disabledTextInput" class="form-label">Nome Produto</label>
-            <input type="text" id="disabledTextInput" class="form-control" placeholder="Disabled input">
+            <label for="descricao">Descricao</label>
+            <input type="text" id="descricao" class="form-control" [(ngModel)] = "descricao" name ="descricao">       
+        
+            <label for="valor">Valor</label>
+            <input type="text" id="valor" class="form-control" [(ngModel)] = "valor" name="valor">
         </div>
-        <div class="mb-3">
-            <label for="disabledSelect" class="form-label">Categoria Produto</label>
-            <select id="disabledSelect" class="form-select">
-                <option>Disabled select</option>
-            </select>
-        </div>
-        <div class="mb-3">
-
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        
+        <button type="submit" class="btn btn-primary" (click)="salvar()">Adicionar</button>
     </fieldset>
 </form>
