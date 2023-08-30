@@ -14,7 +14,8 @@ const routes: Routes = [
     children: [
       { path: '', redirectTo: 'listar', pathMatch: 'full'},
       { path: 'listar', component: CategoriaListarComponent },
-      { path: 'formulario', component: CategoriaFormularioComponent }
+      { path: 'formulario', component: CategoriaFormularioComponent },
+      { path: 'formulario/:indice', component:CategoriaFormularioComponent}
 
     ]
   }

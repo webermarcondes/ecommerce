@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CategoriaService } from '../categoria.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-categoria-formulario',
@@ -8,19 +9,45 @@ import { CategoriaService } from '../categoria.service';
 })
 export class CategoriaFormularioComponent {
 
+  public indice: string = '';
   public descricao:string = '';
   public valor:string = "";
 
   constructor (
-    public categoria_service:CategoriaService
-  ){}
+    public categoria_service:CategoriaService,
+    public activated_route:ActivatedRoute
+  ){
+
+    this.activated_route.params.subscribe(
+      
+      (params: any) => {
+
+        //Caso seja um registro novo interromper o método
+        if(params.indice == undefined) return;
+
+        this.categoria_service.
+        ref().child('/' + params.indice).on('value', (snapshot: any) => {
+
+          let dado:any = snapshot.val();
+          this.indice = params.indice;
+          this.descricao = dado.descricao; 
+        })
+      })
+
+  }
 
   salvar() {
 
     this.categoria_service.salvar({
 
-      descricao: this.descricao
+      descricao: this.descricao,
+      valor: this.valor
     })
+
+    this.descricao = "";
+    this.valor = "";
+
+    alert("Produto cadastrado")
   }
 
 }
