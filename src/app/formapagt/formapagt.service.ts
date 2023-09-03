@@ -4,31 +4,40 @@ import { FirebaseService } from '../firebase.service';
 @Injectable({
   providedIn: 'root'
 })
-export class CategoriaService {
+export class FormapagtService {
 
-  constructor(
-    public firebase_service:FirebaseService
-  ) { }
+  constructor(public firebase_service: FirebaseService) { }
 
   ref() {
-    return  this.firebase_service.ref().child('/categoria');
+    return this.firebase_service.ref().child('/formapagt');
   }
 
   salvar(dados: any){
+
     this.ref().push(dados).then();
   }
-
 
   listar() {
     return this.ref();
   }
 
-  excluir(indice: string){
+  excluir(indice: string) {
     return this.ref().child("/" + indice).remove().then();
   }
 
-  editar(indice:string, dados:any) {
+  editar(indice: string, dados: any) {
 
     this.ref().child('/' + indice).update(dados).then();
-  }
+  } 
+
+
+
+
+
+
+
+
+
+
+
 }

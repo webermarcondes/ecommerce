@@ -3,8 +3,8 @@
         <h3>Cadastrar Produto</h3>
     </div>
     <div class="col-md-2 text-end">
-        <button id="Cadastrar" name="Cadastrar" type="button" class="btn btn-success"
-            routerLink="../listar">Voltar</button>
+        <button id="Voltar" name="Voltar" type="button" class="btn btn-success"
+            routerLink="/categoria/listar">Voltar</button>
 
     </div>
     <div class="col-md-2">
@@ -15,10 +15,12 @@
     <fieldset >
         <div class="mb-3">
             <label for="descricao">Descricao</label>
-            <input type="text" id="descricao" class="form-control" [(ngModel)] = "descricao" name ="descricao">       
-        
+            <input type="text" id="descricao" class="form-control" [(ngModel)]="descricao" name="descricao">       
+            
+            <br>
+            
             <label for="valor">Valor</label>
-            <input type="text" id="valor" class="form-control" [(ngModel)] = "valor" name="valor">
+            <input type="text" id="valor" class="form-control" [(ngModel)]="valor" name="valor">
         </div>
         
         <button type="submit" class="btn btn-primary" (click)="salvar()">Adicionar</button>

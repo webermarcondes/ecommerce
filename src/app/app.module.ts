@@ -15,6 +15,9 @@ import { CategoriaFormularioComponent } from './categoria/categoria-formulario/c
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 import { FormsModule } from '@angular/forms';
+import { FormapagtComponent } from './formapagt/formapagt.component';
+import { FormapagtListarComponent } from './formapagt/formapagt-listar/formapagt-listar.component';
+import { FormapagtFormularioComponent } from './formapagt/formapagt-formulario/formapagt-formulario.component';
 
 
 @NgModule({
@@ -26,7 +29,10 @@ import { FormsModule } from '@angular/forms';
     MenuComponent,
     CategoriaComponent,
     CategoriaListarComponent,
-    CategoriaFormularioComponent
+    CategoriaFormularioComponent,
+    FormapagtComponent,
+    FormapagtListarComponent,
+    FormapagtFormularioComponent
   ],
   imports: [
     BrowserModule,

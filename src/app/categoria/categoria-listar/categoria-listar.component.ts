@@ -37,6 +37,7 @@ export class CategoriaListarComponent implements OnInit {
           this.dados.push({
 
             descricao: e.descricao,
+            valor: e.valor,
             indice: Object.keys(snapshot.val())[i]
 
           });

@@ -11,7 +11,7 @@ export class CategoriaFormularioComponent {
 
   public indice: string = '';
   public descricao:string = '';
-  public valor:string = "";
+  public valor:string = '';
 
   constructor (
     public categoria_service:CategoriaService,
@@ -30,7 +30,8 @@ export class CategoriaFormularioComponent {
 
           let dado:any = snapshot.val();
           this.indice = params.indice;
-          this.descricao = dado.descricao; 
+          this.descricao = dado.descricao;
+          this.valor = dado.valor;
         })
       })
 
