@@ -39,16 +39,26 @@ export class CategoriaFormularioComponent {
 
   salvar() {
 
-    this.categoria_service.salvar({
+    if(this.indice == undefined) {
+      this.categoria_service.salvar({
 
       descricao: this.descricao,
       valor: this.valor
-    })
-
-    this.descricao = "";
-    this.valor = "";
+      })
 
     alert("Produto cadastrado")
-  }
+    }
+
+    else {
+
+      this.categoria_service.editar(this.indice, {descricao: this.descricao, valor: this.valor})
+
+      alert("Alterações salvas")
+    }
+
+  this.descricao = "";
+  this.valor = "";
+
+}
 
 }

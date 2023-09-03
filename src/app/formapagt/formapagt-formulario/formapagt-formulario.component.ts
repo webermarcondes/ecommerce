@@ -40,16 +40,27 @@ export class FormapagtFormularioComponent {
 
 
   salvar() {
-
+    if (this.indice == undefined) {
     this.formapagt_service.salvar({
       nome: this.nome,
       obs: this.obs
       })
     
-    this.nome = "";
-    this.obs = "";
+    
 
     alert("Forma de pagamento cadastrada");
+
+    }
+
+    else {
+      this.formapagt_service.editar(this.indice, {nome: this.nome, obs: this.obs})
+
+      alert("Alterações salvas");
+    }
+
+
+    this.nome = "";
+    this.obs = "";
   }
 
 
