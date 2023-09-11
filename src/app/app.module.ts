@@ -18,6 +18,13 @@ import { FormsModule } from '@angular/forms';
 import { FormapagtComponent } from './formapagt/formapagt.component';
 import { FormapagtListarComponent } from './formapagt/formapagt-listar/formapagt-listar.component';
 import { FormapagtFormularioComponent } from './formapagt/formapagt-formulario/formapagt-formulario.component';
+import { SubcategoriaFormularioComponent } from './subcategoria/subcategoria-formulario/subcategoria-formulario.component';
+import { SubcategoriaListarComponent } from './subcategoria/subcategoria-listar/subcategoria-listar.component';
+import { SubcategoriaComponent } from './subcategoria/subcategoria.component';
+import { UsuarioComponent } from './usuario/usuario.component';
+import { UsuarioFormularioComponent } from './usuario/usuario-formulario/usuario-formulario.component';
+import { UsuarioListarComponent } from './usuario/usuario-listar/usuario-listar.component';
+
 
 
 @NgModule({
@@ -32,7 +39,14 @@ import { FormapagtFormularioComponent } from './formapagt/formapagt-formulario/f
     CategoriaFormularioComponent,
     FormapagtComponent,
     FormapagtListarComponent,
-    FormapagtFormularioComponent
+    FormapagtFormularioComponent,
+    SubcategoriaComponent,
+    SubcategoriaFormularioComponent,
+    SubcategoriaListarComponent,
+    UsuarioComponent,
+    UsuarioFormularioComponent,
+    UsuarioListarComponent,
+    
   ],
   imports: [
     BrowserModule,

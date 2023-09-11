@@ -39,26 +39,68 @@ export class CategoriaFormularioComponent {
 
   salvar() {
 
-    if(this.indice == undefined) {
-      this.categoria_service.salvar({
+    let validacoes_campos = this.validar_campos(); //Valida todos os campos do formulário
 
-      descricao: this.descricao,
-      valor: this.valor
-      })
+    if(this.indice == '') {
+   
+      
+      if(validacoes_campos.get("descricao_valido") == true && validacoes_campos.get("valor_valido") == true) {
 
-    alert("Produto cadastrado")
+        this.categoria_service.salvar({
+
+        descricao: this.descricao,
+        valor: this.valor
+        })
+
+        alert("Produto cadastrado")
+
+        this.descricao = '';
+        this.valor = '';
+
+      }
     }
 
     else {
 
-      this.categoria_service.editar(this.indice, {descricao: this.descricao, valor: this.valor})
 
-      alert("Alterações salvas")
+      if(validacoes_campos.get("descricao_valido") == true && validacoes_campos.get("valor_valido") == true) {
+
+        this.categoria_service.editar(this.indice, {descricao: this.descricao, valor: this.valor})
+
+        alert("Alterações salvas")
+      }
+    }
+  }
+
+  validar_campos() {
+
+    let validacoes = new Map();
+
+    if(this.descricao == "") {
+      document.querySelector("#descricao")?.classList.add('has-error');
+      validacoes.set("descricao_valido", false);
     }
 
-  this.descricao = "";
-  this.valor = "";
+    else {
+      document.querySelector("#descricao")?.classList.remove('has-error');
+      validacoes.set("descricao_valido", true);
 
-}
+    }
 
+
+    if(this.valor == "") {
+      document.querySelector("#valor")?.classList.add('has-error');
+      validacoes.set("valor_valido", false);
+    }
+
+
+    else {
+      document.querySelector("#valor")?.classList.remove('has-error');
+      validacoes.set("valor_valido", true);
+
+    }
+
+    return validacoes;
+  }
+  
 }

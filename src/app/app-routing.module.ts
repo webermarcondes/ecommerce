@@ -7,6 +7,12 @@ import { CategoriaListarComponent } from './categoria/categoria-listar/categoria
 import { FormapagtComponent } from './formapagt/formapagt.component';
 import { FormapagtListarComponent } from './formapagt/formapagt-listar/formapagt-listar.component';
 import { FormapagtFormularioComponent } from './formapagt/formapagt-formulario/formapagt-formulario.component';
+import { SubcategoriaComponent } from './subcategoria/subcategoria.component';
+import { SubcategoriaListarComponent } from './subcategoria/subcategoria-listar/subcategoria-listar.component';
+import { SubcategoriaFormularioComponent } from './subcategoria/subcategoria-formulario/subcategoria-formulario.component';
+import { UsuarioFormularioComponent } from './usuario/usuario-formulario/usuario-formulario.component';
+import { UsuarioListarComponent } from './usuario/usuario-listar/usuario-listar.component';
+import { UsuarioComponent } from './usuario/usuario.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -30,6 +36,28 @@ const routes: Routes = [
       {path: 'formulario', component: FormapagtFormularioComponent},
       {path: 'formulario/:indice', component: FormapagtFormularioComponent}
     ]
+  },
+  {
+    path: 'subcategoria',
+    component: SubcategoriaComponent,
+    children: [
+      {path: '', redirectTo: 'listar', pathMatch: 'full'},
+      {path: 'listar', component: SubcategoriaListarComponent},
+      {path: 'formulario', component: SubcategoriaFormularioComponent},
+      {path: 'formulario/:indice', component: SubcategoriaFormularioComponent}
+    ]
+    
+  },
+  {
+    path: 'usuario',
+    component: UsuarioComponent,
+    children: [
+      {path: '', redirectTo: 'listar', pathMatch: 'full'},
+      {path: 'listar', component: UsuarioListarComponent},
+      {path: 'formulario', component: UsuarioFormularioComponent},
+      {path: 'formulario/:indice', component: UsuarioFormularioComponent}
+    ]
+    
   }
 ];
 
