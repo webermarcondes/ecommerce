@@ -1,0 +1,53 @@
+<div class="row">
+    <div class="col-md-10">
+        <h3>Formulário de Pedido</h3>
+    </div>
+    <div class="col-md-2 text-end">
+        <button id="Voltar" name="Voltar" type="button" class="btn btn-success"
+            routerLink="/pedido/listar">Voltar</button>
+    </div>
+    <div class="col-md-2">
+    </div>
+</div>
+<br>
+
+<form>
+    <fieldset>
+        <div class="mb-3">
+            <label for="descricao" class="campo-obrigatorio">Descrição</label>
+            <input type="text" id="descricao" class="form-control" [(ngModel)]="descricao" name="descricao">
+
+
+            <label for="cliente" class="form-label, campo-obrigatorio">Cliente</label>
+            <select class="form-control form-select" [(ngModel)]="cliente" id ="cliente" name="cliente">
+                <option *ngFor="let cliente of clientes" [value]="cliente.indice"
+                    [innerHTML]="cliente.nome"></option>
+            </select>
+
+            <label for="produto" class="form-label, campo-obrigatorio">Produto</label>
+            <select class="form-control form-select" [(ngModel)]="produto" id ="produto" name="produto">
+                <option *ngFor="let produto of produtos" [value]="produto.indice"
+                    [innerHTML]="produto.nome"></option>
+            </select>
+
+
+            <!--<label for="quantidade" class="campo-obrigatorio">Quantidade</label>
+            <input type="text" id="quantidade" class="form-control" [(ngModel)]="quantidade" name="quantidade">
+            <br>
+
+            #Implementar quantidade e valor como campo calculado
+            -->
+
+            <label for="fpag" class="form-label, campo-obrigatorio">Forma de pagamento</label>
+            <select class="form-control form-select" [(ngModel)]="fpag" id ="fpag" name="fpag">
+                <option *ngFor="let fpag of formaspag" [value]="fpag.indice"
+                    [innerHTML]="fpag.nome"></option>
+            </select>
+
+        </div>
+
+        <button type="submit" class="btn btn-primary" (click)="salvar()">Salvar</button>
+
+
+    </fieldset>
+</form>

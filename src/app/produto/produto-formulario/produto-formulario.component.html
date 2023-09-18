@@ -1,0 +1,48 @@
+<div class="row">
+    <div class="col-md-10">
+        <h3>Formulário de Produto</h3>
+    </div>
+    <div class="col-md-2 text-end">
+        <button id="Voltar" name="Voltar" type="button" class="btn btn-success"
+            routerLink="/produto/listar">Voltar</button>
+    </div>
+    <div class="col-md-2">
+    </div>
+</div>
+<br>
+
+<form>
+    <fieldset>
+        <div class="mb-3">
+            <label for="nome" class="campo-obrigatorio">Nome</label>
+            <input type="text" id="nome" class="form-control" [(ngModel)]="nome" name="nome">
+
+            <label for="preco" class="campo-obrigatorio">Preço</label>
+            <input type="text" id="preco" class="form-control" [(ngModel)]="preco" name="preco">
+            <br>
+            <label for="descricao" class="campo-obrigatorio">Descricao</label>
+            <textarea id="descricao" class="form-control" [(ngModel)]="descricao" name="descricao"></textarea>
+            <br>
+            <label for="categoria" class="form-label, campo-obrigatorio">Categoria</label>
+            <select class="form-control form-select" [(ngModel)]="categoria" id ="categoria" name="categoria"
+            (change)='listarSubCategoria(categoria)'>
+                <option *ngFor="let categoria of categorias" [value]="categoria.indice"
+                    [innerHTML]="categoria.descricao"></option>
+            </select>
+
+            <br>
+
+            <label id="subcategoria-label" for="subcategoria" class="form-label">Sub-Categoria</label>
+            <select [disabled]="is_desabilitado" class="form-control form-select" [(ngModel)]="subcategoria" id ="subcategoria" name="subcategoria">
+                <option *ngFor="let subcategoria of subcategorias" [value]="subcategoria.indice"
+                    [innerHTML]="subcategoria.descricao"></option>
+            </select>
+
+
+        </div>
+
+        <button type="submit" class="btn btn-primary" (click)="salvar()">Salvar</button>
+
+
+    </fieldset>
+</form>

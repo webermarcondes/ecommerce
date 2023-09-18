@@ -13,6 +13,12 @@ import { SubcategoriaFormularioComponent } from './subcategoria/subcategoria-for
 import { UsuarioFormularioComponent } from './usuario/usuario-formulario/usuario-formulario.component';
 import { UsuarioListarComponent } from './usuario/usuario-listar/usuario-listar.component';
 import { UsuarioComponent } from './usuario/usuario.component';
+import { ProdutoListarComponent } from './produto/produto-listar/produto-listar.component';
+import { ProdutoFormularioComponent } from './produto/produto-formulario/produto-formulario.component';
+import { ClienteListarComponent } from './cliente/cliente-listar/cliente-listar.component';
+import { ClienteFormularioComponent } from './cliente/cliente-formulario/cliente-formulario.component';
+import { PedidoListarComponent } from './pedido/pedido-listar/pedido-listar.component';
+import { PedidoFormularioComponent } from './pedido/pedido-formulario/pedido-formulario.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -56,6 +62,39 @@ const routes: Routes = [
       {path: 'listar', component: UsuarioListarComponent},
       {path: 'formulario', component: UsuarioFormularioComponent},
       {path: 'formulario/:indice', component: UsuarioFormularioComponent}
+    ]
+    
+  },
+  {
+    path: 'produto',
+    component: UsuarioComponent,
+    children: [
+      {path: '', redirectTo: 'listar', pathMatch: 'full'},
+      {path: 'listar', component: ProdutoListarComponent},
+      {path: 'formulario', component: ProdutoFormularioComponent},
+      {path: 'formulario/:indice', component: ProdutoFormularioComponent}
+    ]
+    
+  },
+  {
+    path: 'cliente',
+    component: UsuarioComponent,
+    children: [
+      {path: '', redirectTo: 'listar', pathMatch: 'full'},
+      {path: 'listar', component: ClienteListarComponent},
+      {path: 'formulario', component: ClienteFormularioComponent},
+      {path: 'formulario/:indice', component: ClienteFormularioComponent}
+    ]
+    
+  },
+  {
+    path: 'pedido',
+    component: UsuarioComponent,
+    children: [
+      {path: '', redirectTo: 'listar', pathMatch: 'full'},
+      {path: 'listar', component: PedidoListarComponent},
+      {path: 'formulario', component: PedidoFormularioComponent},
+      {path: 'formulario/:indice', component: PedidoFormularioComponent}
     ]
     
   }

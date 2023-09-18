@@ -10,9 +10,9 @@
 
     <thead>
         <tr>
-            <th scope="col" width="40%">Id</th>
-            <th scope="col" width="40%">Descricao</th> 
-            <th scope="col" width="0%"></th>
+            <th scope="col" width="30%">Id</th>
+            <th scope="col" width="30%">Descricao</th> 
+            <th scope="col" width="30%">Categoria</th>
         </tr>
 
     </thead>
@@ -22,6 +22,7 @@
         <tr *ngFor="let subcategoria of dados">
             <th scope="row">1</th>
             <td>{{subcategoria.descricao}}</td>
+            <td>{{subcategoria.categoria}}</td>
             
             <td> 
                 <button id="editar" name="editar" type="button" class="btn btn-primary">

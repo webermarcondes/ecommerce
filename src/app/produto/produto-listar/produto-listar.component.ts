@@ -1,27 +1,28 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { SubcategoriaService } from '../subcategoria.service';
+import { ProdutoService } from '../produto.service';
 import { CategoriaService } from 'src/app/categoria/categoria.service';
+import { SubcategoriaService } from 'src/app/subcategoria/subcategoria.service';
 
 @Component({
-  selector: 'app-subcategoria-listar',
-  templateUrl: './subcategoria-listar.component.html',
-  styleUrls: ['./subcategoria-listar.component.scss']
+  selector: 'app-produto-listar',
+  templateUrl: './produto-listar.component.html',
+  styleUrls: ['./produto-listar.component.scss']
 })
-export class SubcategoriaListarComponent implements OnInit {
-  
-  
+export class ProdutoListarComponent implements OnInit{
+
   public dados: Array<any> = [];
-  
-  
+
   constructor(
-    public subcategoria_service: SubcategoriaService,
+    public produto_service: ProdutoService,
     public categoria_service: CategoriaService,
+    public subcategoria_service: SubcategoriaService,
     public router: Router
-  ){}
-  
-  ngOnInit(): void {
-    this.subcategoria_service.listar()
+  ) {}
+
+
+  ngOnInit(): void{
+    this.produto_service.listar()
     .on('value', (snapshot: any) => {
 
       //Limpa a váriavel local com os dados
@@ -37,23 +38,35 @@ export class SubcategoriaListarComponent implements OnInit {
 
         let categoria_descricao: any = await this.categoria_service.get(e.categoria);
 
+        
+        let subcategoria_descricao: any = "";
+        if(e.subcategoria != "") {
+          subcategoria_descricao = await this.subcategoria_service.get(e.subcategoria);
+        }  
+       
         this.dados.push({
+          nome: e.nome,
+          preco: e.preco,
           descricao: e.descricao,
           categoria: categoria_descricao.descricao,
+          subcategoria: subcategoria_descricao.descricao,
           indice: Object.keys(snapshot.val())[i]
         })
+      
+      
       })
     })
-    
+
+  
   }
 
-
   excluir(key: string){
-    this.subcategoria_service.excluir(key);
+    this.produto_service.excluir(key);
   }
 
   editar(key: string) {
-    this.router.navigate(['subcategoria/formulario/' + key])
+    this.router.navigate(['produto/formulario/' + key])
   }
 
-}
+
+} 

@@ -11,9 +11,8 @@ import { CategoriaService } from 'src/app/categoria/categoria.service';
 export class SubcategoriaFormularioComponent {
   public descricao: string='';
   public indice: string='';
-
-  public categorias: Array<any> = ["alimento", "bebida", "roupa"];
-
+  public categoria:string = '';
+  public categorias:Array<any> = [];
 
   constructor(
     public subcategoria_service: SubcategoriaService,
@@ -21,9 +20,30 @@ export class SubcategoriaFormularioComponent {
     public activated_route: ActivatedRoute
   ) {
 
-    //this.addCategoria();
+    //Carregamento das categorias
+    this.categoria_service.listar()
+    .once('value',(snapshot:any) => {
 
+      // Dados retornados do Firebase
+      let response = snapshot.val();
 
+      // Não setar valores caso não venha
+      // nenhum registro
+      if (response == null) return;
+
+      Object.values( response )
+      .forEach(
+        (e:any,i:number) => {
+          // Adiciona os elementos no vetor
+          // de dados
+          this.categorias.push({
+            descricao: e.descricao,
+            indice: Object.keys(snapshot.val())[i]
+          });          
+      })
+    })  ;
+
+    //Carregamento dos dados quando o usuário deseja editar algum registro
     this.activated_route.params.subscribe(
 
 
@@ -37,6 +57,7 @@ export class SubcategoriaFormularioComponent {
           let dado: any = snapshot.val();
           this.indice = params.indice;
           this.descricao = dado.descricao;
+          this.categoria = dado.categoria;
         })
       }
 
@@ -55,12 +76,14 @@ export class SubcategoriaFormularioComponent {
       
       if(validacoes_campos.get("descricao_valido") == true) {
         this.subcategoria_service.salvar({
-          descricao: this.descricao
+          descricao: this.descricao,
+          categoria: this.categoria
         })
 
         alert("Sub-categoria cadastrada");
 
         this.descricao = '';
+        this.categoria = "";
       }
 
       
@@ -68,7 +91,7 @@ export class SubcategoriaFormularioComponent {
 
   else {
 
-    if(validacoes_campos.get("descricao_valido") == true) {
+    if(validacoes_campos.get("descricao_valido") == true && validacoes_campos.get("categoria_valido") == true) {
       this.subcategoria_service.editar(this.indice, {descricao: this.descricao})
       alert("Alterações salvas");
     }
@@ -92,20 +115,19 @@ export class SubcategoriaFormularioComponent {
 
     }
 
+    if(this.categoria == "") {
+      document.querySelector("#categoria")?.classList.add('has-error');
+      validacoes.set("categoria_valido", false);
+    }
+
+
+    else {
+      document.querySelector("#categoria")?.classList.remove('has-error');
+      validacoes.set("categoria_valido", true);
+
+    }
+
     return validacoes;
   }
-
-
-  addCategoria() {
-    let i = 0;
-    for(i=1; i<3; i++) {
-      let option = document.createElement('option');
-
-      option.value = "" + i;
-      option.innerHTML = "" + i;
-
-      document.getElementById('categoria')?.append(option);
-    }
-    }
   }
 

@@ -11,7 +11,7 @@ export class CategoriaFormularioComponent {
 
   public indice: string = '';
   public descricao:string = '';
-  public valor:string = '';
+  
 
   constructor (
     public categoria_service:CategoriaService,
@@ -31,7 +31,7 @@ export class CategoriaFormularioComponent {
           let dado:any = snapshot.val();
           this.indice = params.indice;
           this.descricao = dado.descricao;
-          this.valor = dado.valor;
+         
         })
       })
 
@@ -44,18 +44,18 @@ export class CategoriaFormularioComponent {
     if(this.indice == '') {
    
       
-      if(validacoes_campos.get("descricao_valido") == true && validacoes_campos.get("valor_valido") == true) {
+      if(validacoes_campos.get("descricao_valido") == true) {
 
         this.categoria_service.salvar({
 
         descricao: this.descricao,
-        valor: this.valor
+       
         })
 
-        alert("Produto cadastrado")
+        alert("Categoria cadastrado")
 
         this.descricao = '';
-        this.valor = '';
+        
 
       }
     }
@@ -63,9 +63,9 @@ export class CategoriaFormularioComponent {
     else {
 
 
-      if(validacoes_campos.get("descricao_valido") == true && validacoes_campos.get("valor_valido") == true) {
+      if(validacoes_campos.get("descricao_valido") == true) {
 
-        this.categoria_service.editar(this.indice, {descricao: this.descricao, valor: this.valor})
+        this.categoria_service.editar(this.indice, {descricao: this.descricao})
 
         alert("Alterações salvas")
       }
@@ -86,20 +86,7 @@ export class CategoriaFormularioComponent {
       validacoes.set("descricao_valido", true);
 
     }
-
-
-    if(this.valor == "") {
-      document.querySelector("#valor")?.classList.add('has-error');
-      validacoes.set("valor_valido", false);
-    }
-
-
-    else {
-      document.querySelector("#valor")?.classList.remove('has-error');
-      validacoes.set("valor_valido", true);
-
-    }
-
+    
     return validacoes;
   }
   

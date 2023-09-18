@@ -17,19 +17,21 @@
             <label for="descricao" class="campo-obrigatorio">Descricao</label>
             <input type="text" id="descricao" class="form-control" [(ngModel)]="descricao" name="descricao">
 
-            <label for="categoria" class="campo-obrigatorio">Categoria</label>
             <br>
-            <select id="categoria">
-                
-            </select>    
+
+            <label for="categoria" class="form-label, campo-obrigatorio">Categoria</label>
+            <select class="form-control" [(ngModel)]="categoria" id ="categoria" name="categoria">
+                <option *ngFor="let categoria of categorias" [value]="categoria.indice"
+                    [innerHTML]="categoria.descricao"></option>
+            </select>
         </div>
 
-        
+
 
 
 
         <button type="submit" class="btn btn-primary" (click)="salvar()">Salvar</button>
- 
+
 
     </fieldset>
 </form>

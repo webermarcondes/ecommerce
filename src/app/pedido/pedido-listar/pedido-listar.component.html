@@ -1,0 +1,59 @@
+<!--
+
+ this.descricao = "";
+        this.cliente = "";
+        this.produto = "";
+        this.fpag = "";
+
+-->
+
+
+<div style="display: flex; justify-content: right;">
+    <button class="btn btn-primary" routerLink="../formulario">
+        <span class="bi bi-plus"></span>
+        Novo
+    </button>
+</div>
+
+
+<table class="table table-hover">
+
+    <thead>
+        <tr>
+            <th scope="col" width="20%">Id</th>
+            <th scope="col" width="20%">Descrição</th>
+            <th scope="col" width="20%">Cliente</th>
+            <th scope="col" width="20%">Produto</th>
+            <th scope="col" width="20%">Forma de pagamento</th>          
+        </tr>
+
+    </thead>
+
+    <tbody>
+        
+        <tr *ngFor="let pedido of dados">
+            <th scope="row">1</th>
+            <td>{{pedido.descricao}}</td>
+            <td>{{pedido.cliente}}</td>
+            <td>{{pedido.produto}}</td>
+            <td>{{pedido.fpag}}</td>
+            
+
+            <div style="justify-content: right;">
+                <td> 
+                    <button id="editar" name="Editar" type="button" class="btn btn-primary">
+                    <i class="bi bi-pencil" (click)="editar(pedido.indice)"></i>  
+                    </button>
+                </td>
+
+                <td>
+                    <button id="excluir" name="Excluir" type="button" class="btn btn-danger">
+                        <i class="bi bi-trash3" (click)="excluir(pedido.indice)"></i>
+                    </button>
+                </td>
+            </div>
+            
+        </tr>
+    </tbody>
+
+</table>

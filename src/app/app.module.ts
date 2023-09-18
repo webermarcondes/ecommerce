@@ -24,6 +24,15 @@ import { SubcategoriaComponent } from './subcategoria/subcategoria.component';
 import { UsuarioComponent } from './usuario/usuario.component';
 import { UsuarioFormularioComponent } from './usuario/usuario-formulario/usuario-formulario.component';
 import { UsuarioListarComponent } from './usuario/usuario-listar/usuario-listar.component';
+import { ProdutoComponent } from './produto/produto.component';
+import { ProdutoFormularioComponent } from './produto/produto-formulario/produto-formulario.component';
+import { ProdutoListarComponent } from './produto/produto-listar/produto-listar.component';
+import { ClienteComponent } from './cliente/cliente.component';
+import { ClienteFormularioComponent } from './cliente/cliente-formulario/cliente-formulario.component';
+import { ClienteListarComponent } from './cliente/cliente-listar/cliente-listar.component';
+import { PedidoComponent } from './pedido/pedido.component';
+import { PedidoFormularioComponent } from './pedido/pedido-formulario/pedido-formulario.component';
+import { PedidoListarComponent } from './pedido/pedido-listar/pedido-listar.component';
 
 
 
@@ -46,6 +55,15 @@ import { UsuarioListarComponent } from './usuario/usuario-listar/usuario-listar.
     UsuarioComponent,
     UsuarioFormularioComponent,
     UsuarioListarComponent,
+    ProdutoComponent,
+    ProdutoFormularioComponent,
+    ProdutoListarComponent,
+    ClienteComponent,
+    ClienteFormularioComponent,
+    ClienteListarComponent,
+    PedidoComponent,
+    PedidoFormularioComponent,
+    PedidoListarComponent
     
   ],
   imports: [
