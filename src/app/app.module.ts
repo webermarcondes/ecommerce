@@ -33,6 +33,12 @@ import { ClienteListarComponent } from './cliente/cliente-listar/cliente-listar.
 import { PedidoComponent } from './pedido/pedido.component';
 import { PedidoFormularioComponent } from './pedido/pedido-formulario/pedido-formulario.component';
 import { PedidoListarComponent } from './pedido/pedido-listar/pedido-listar.component';
+import { EstadoComponent } from './estado/estado.component';
+import { EstadoFormularioComponent } from './estado/estado-formulario/estado-formulario.component';
+import { EstadoListarComponent } from './estado/estado-listar/estado-listar.component';
+import { FornecedorComponent } from './fornecedor/fornecedor.component';
+import { FornecedorFormularioComponent } from './fornecedor/fornecedor-formulario/fornecedor-formulario.component';
+import { FornecedorListarComponent } from './fornecedor/fornecedor-listar/fornecedor-listar.component';
 
 
 
@@ -63,7 +69,13 @@ import { PedidoListarComponent } from './pedido/pedido-listar/pedido-listar.comp
     ClienteListarComponent,
     PedidoComponent,
     PedidoFormularioComponent,
-    PedidoListarComponent
+    PedidoListarComponent,
+    EstadoComponent,
+    EstadoFormularioComponent,
+    EstadoListarComponent,
+    FornecedorComponent,
+    FornecedorFormularioComponent,
+    FornecedorListarComponent
     
   ],
   imports: [

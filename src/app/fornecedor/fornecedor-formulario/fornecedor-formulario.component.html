@@ -1,0 +1,68 @@
+<div class="row">
+    <div class="col-md-10">
+        <h3>Formulário de Fornecedor</h3>
+    </div>
+    <div class="col-md-2 text-end">
+        <button id="Voltar" name="Voltar" type="button" class="btn btn-success"
+            routerLink="/fornecedor/listar">Voltar</button>
+    </div>
+    <div class="col-md-2">
+    </div>
+</div>
+<br>
+
+<form>
+    <fieldset>
+        <div class="mb-3">
+
+            
+            <label for="nome_fantasia" class="campo-obrigatorio">Nome Fantasia</label>
+            <input type="text" id="nome_fantasia" class="form-control" [(ngModel)]="nome_fantasia" name="nome_fantasia">
+           
+            <br>
+            <label for="razao_social">Razão Social</label>
+            <input type="text" id="razao_social" class="form-control" [(ngModel)]="razao_social" name="razao_social">
+            <br>
+            <label for="cnpj" class="campo-obrigatorio">CNPJ</label>
+            <input type="text" id="cnpj" class="form-control" [(ngModel)]="cnpj" name="cnpj">
+            <br>
+
+            <label for="contato">Contato</label>
+            <input type="text" id="contato" class="form-control" [(ngModel)]="contato" name="contato">
+            <br>
+
+            <label for="email" class="campo-obrigatorio">E-mail</label>
+            <input type="text" id="email" class="form-control" [(ngModel)]="email" name="email">
+            <br>
+
+            <label for="logradouro" class="campo-obrigatorio">Logradouro (av, rua, beco..) </label>
+            <input type="text" id="logradouro" class="form-control" [(ngModel)]="logradouro" name="logradouro">
+            <br>
+            <label for="complemento">Complemento</label>
+            <input type="text" id="complemento" class="form-control" [(ngModel)]="complemento"
+                name="complemento">
+            <br>
+
+            <label for="bairro" class="campo-obrigatorio">Bairro</label>
+            <input type="text" id="bairro" class="form-control" [(ngModel)]="bairro" name="bairro">
+            <br>
+
+            <label for="cidade" class="campo-obrigatorio">Cidade</label>
+            <input type="text" id="cidade" class="form-control" [(ngModel)]="cidade" name="cidade">
+            <br>
+
+            <label for="estado" class="form-label, campo-obrigatorio">Estado</label>
+            <select class="form-control form-select" [(ngModel)]="estado" id ="estado" name="estado">
+                <option *ngFor="let estado of estados" [value]="estado.indice"
+                    [innerHTML]="estado.nome"></option>
+            </select>
+            <br>
+            
+
+        </div>
+
+        <button type="submit" class="btn btn-primary" (click)="salvar()">Salvar</button>
+
+
+    </fieldset>
+</form>

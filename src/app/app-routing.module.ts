@@ -19,6 +19,15 @@ import { ClienteListarComponent } from './cliente/cliente-listar/cliente-listar.
 import { ClienteFormularioComponent } from './cliente/cliente-formulario/cliente-formulario.component';
 import { PedidoListarComponent } from './pedido/pedido-listar/pedido-listar.component';
 import { PedidoFormularioComponent } from './pedido/pedido-formulario/pedido-formulario.component';
+import { EstadoListarComponent } from './estado/estado-listar/estado-listar.component';
+import { EstadoFormularioComponent } from './estado/estado-formulario/estado-formulario.component';
+import { EstadoComponent } from './estado/estado.component';
+import { PedidoComponent } from './pedido/pedido.component';
+import { ClienteComponent } from './cliente/cliente.component';
+import { ProdutoComponent } from './produto/produto.component';
+import { FornecedorListarComponent } from './fornecedor/fornecedor-listar/fornecedor-listar.component';
+import { FornecedorFormularioComponent } from './fornecedor/fornecedor-formulario/fornecedor-formulario.component';
+import { FornecedorComponent } from './fornecedor/fornecedor.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -67,7 +76,7 @@ const routes: Routes = [
   },
   {
     path: 'produto',
-    component: UsuarioComponent,
+    component: ProdutoComponent,
     children: [
       {path: '', redirectTo: 'listar', pathMatch: 'full'},
       {path: 'listar', component: ProdutoListarComponent},
@@ -78,7 +87,7 @@ const routes: Routes = [
   },
   {
     path: 'cliente',
-    component: UsuarioComponent,
+    component: ClienteComponent,
     children: [
       {path: '', redirectTo: 'listar', pathMatch: 'full'},
       {path: 'listar', component: ClienteListarComponent},
@@ -89,12 +98,35 @@ const routes: Routes = [
   },
   {
     path: 'pedido',
-    component: UsuarioComponent,
+    component: PedidoComponent,
     children: [
       {path: '', redirectTo: 'listar', pathMatch: 'full'},
       {path: 'listar', component: PedidoListarComponent},
       {path: 'formulario', component: PedidoFormularioComponent},
       {path: 'formulario/:indice', component: PedidoFormularioComponent}
+    ]
+    
+  },
+  {
+    path: 'estado',
+    component: EstadoComponent,
+    children: [
+      {path: '', redirectTo: 'listar', pathMatch: 'full'},
+      {path: 'listar', component: EstadoListarComponent},
+      {path: 'formulario', component: EstadoFormularioComponent},
+      {path: 'formulario/:indice', component: EstadoFormularioComponent}
+    ]
+    
+  },
+
+  {
+    path: 'fornecedor',
+    component: FornecedorComponent,
+    children: [
+      {path: '', redirectTo: 'listar', pathMatch: 'full'},
+      {path: 'listar', component: FornecedorListarComponent},
+      {path: 'formulario', component: FornecedorFormularioComponent},
+      {path: 'formulario/:indice', component: FornecedorFormularioComponent}
     ]
     
   }

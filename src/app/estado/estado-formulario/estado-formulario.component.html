@@ -1,0 +1,25 @@
+<div class="row">
+    <div class="col-md-10">
+        <h3>Formulário de Estado</h3>
+    </div>
+    <div class="col-md-2 text-end">
+        <button id="voltar" name="voltar" type="button" class="btn btn-success"
+            routerLink="/estado/listar">Voltar</button>
+
+    </div>
+    <div class="col-md-2">
+    </div>
+</div>
+<br>
+<form>
+    <fieldset >
+        <div class="mb-3">
+            <label for="nome" class="campo-obrigatorio">Nome</label>
+            <input type="text" id="nome" class="form-control" [(ngModel)]="nome" name="nome">       
+            
+            <br>
+        </div>
+        
+        <button type="submit" class="btn btn-primary" (click)="salvar()">Salvar</button>
+    </fieldset>
+</form>

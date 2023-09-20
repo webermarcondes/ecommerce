@@ -12,13 +12,7 @@ import { FormapagtService } from 'src/app/formapagt/formapagt.service';
 })
 export class PedidoFormularioComponent {
 
-  /*
-    descricao,
-    cliente -> clientes,
-    produto -> produtos,
-    quantidade,
-    fpag -> fspag
-  */
+  
 
   public clientes: Array<any> = [];
   public produtos: Array<any> = [];
